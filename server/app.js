@@ -1,5 +1,6 @@
 var express = require('express')
 var app = express();
+
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var messages = require('./routes/messages.js')
@@ -8,7 +9,12 @@ var messages = require('./routes/messages.js')
 //middleware
 app.use(express.static('public'));
 
-app.use('/messages', messages);
+
+app.use(bodyParser.json());//1st
+//order of bodyparser and the use route matter, for future reference.
+
+
+app.use('/messages', messages);//2nd
 
 
 var databaseUrl = 'mongodb://localhost:27017/mongodbPractice';
