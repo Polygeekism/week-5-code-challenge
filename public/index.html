@@ -17,9 +17,9 @@
             <th>Name</th>
             <th>Message</th>
         </thead>
-        <tr>
-            <td>Placeholder name</td>
-            <td>"We had a great placeholder"</td>
+        <tr ng-repeat='message in vm.returnedMessages.list'>
+            <td>{{message.name}}</td>
+            <td>{{message.message}}</td>
         </tr>
     </table>
 </body>
